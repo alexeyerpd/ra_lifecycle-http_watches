@@ -1,0 +1,43 @@
+@use 'styles/variables';
+
+$block: '.#{variables.$ns}watches';
+
+#{$block} {
+    display: grid;
+    gap: 30px;
+
+    &__create-block {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        align-items: end;
+        gap: 20px;
+    }
+
+    &__create-field {
+        display: grid;
+        gap: 6px;
+
+        min-width: 200px;
+    }
+
+    &__create-control,
+    &__create-btn {
+        padding: 10px 15px;
+
+        border: 1px solid #000;
+    }
+
+    &__create-btn {
+        background-color: transparent;
+
+        cursor: pointer;
+    }
+
+    &__content {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        gap: 30px;
+    }
+}
