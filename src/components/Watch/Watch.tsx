@@ -40,7 +40,7 @@ export function Watch({data: {name, value, watchId}, onDelete}: WatchProps) {
             <div className={block('circle')}>
                 <div
                     className={block('arrow', {hour: true})}
-                    style={{transform: `rotate(${valueToDeg(date.h, 24)}deg)`}}
+                    style={{transform: `rotate(${valueToDeg(date.h, 12)}deg)`}}
                 ></div>
                 <div
                     className={block('arrow', {minuts: true})}
@@ -50,6 +50,19 @@ export function Watch({data: {name, value, watchId}, onDelete}: WatchProps) {
                     className={block('arrow', {seconds: true})}
                     style={{transform: `rotate(${valueToDeg(date.s, 60)}deg)`}}
                 ></div>
+                {Array.from({length: 12}).map((_, i) => {
+                    const props = {
+                        'ordinal-number': i + 1,
+                    };
+                    return (
+                        <div
+                            key={i}
+                            className={block('serif')}
+                            {...props}
+                            style={{'--ordinal-number': i + 1} as React.CSSProperties}
+                        ></div>
+                    );
+                })}
             </div>
         </div>
     );
