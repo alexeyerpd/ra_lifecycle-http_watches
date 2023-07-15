@@ -25,13 +25,12 @@ export function Watch({data: {name, value, watchId}, onDelete}: WatchProps) {
         let reqId: number;
         function action() {
             const d = dayjs().tz(value);
-            setDate({h: d.hour(), m: d.minute(), s: d.second()});
+            setDate({h: d.hour() % 12, m: d.minute(), s: d.second()});
             reqId = requestAnimationFrame(action);
         }
         action();
         return () => cancelAnimationFrame(reqId);
     }, [value]);
-
     return (
         <div className={block()}>
             <button className={block('btn-delete')} onClick={() => onDelete(watchId)}>
