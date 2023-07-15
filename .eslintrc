@@ -56,7 +56,9 @@
                 "property": false,
                 "trivial": false
             }
-        ]
+        ],
+        "@typescript-eslint/no-duplicate-imports": "off",
+        "@typescript-eslint/no-parameter-properties": "off"
     },
     "overrides": [
         {
